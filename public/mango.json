@@ -1,0 +1,84 @@
+
+  [ 
+    {
+      
+        "name":"Gopalvog",
+        "img":"/gopalvog.jpg",
+         "price":"100/kg",
+         "available_time":"June 1st week",
+         "availability":"10 Days",
+         "brix":10,
+         "labtested":"yes",
+         "content":"sdfsdklfksla",
+         
+          
+
+    },
+    {
+        "id":2,
+        "name":"Himsagor",
+        "img":"/Himsagor.jpg",
+         "price":"100/kg",
+         "available_time":"June 2nd week",
+         "availability":"20-25 Days",
+         "brix":10,
+         "purity":"yes"
+    },
+    {
+        "id":3,
+        "name":"Langra",
+        "img":"/langra2.jpg",
+         "price":"100/kg",
+         "available_time":"June 2nd week",
+         "availability":"20-25 Days",
+         "brix":10,
+         "purity":"yes"
+    },
+    {
+        "id":4,
+        "name":"Fojli",
+        "img":"/fojli.jpg",
+         "price":"100/kg",
+         "available_time":"July 1st week",
+         "availability":"30 Days",
+         "brix":10,
+         "purity":"yes"
+    }
+    ,
+    {
+        "id":5,
+        "name":"Amropoli",
+        "img":"/amropoli.jpg",
+         "price":"100/kg",
+         "available_time":"July 1st week",
+         "availability":"30 Days",
+         "brix":10,
+         "purity":"yes"
+    }
+    ,
+    {
+        "id":6,
+        "name":"Ashina",
+        "img":"/ashina2.jpg",
+         "price":"100/kg",
+         "available_time":"July 3rd week",
+         "availability":"30 Days",
+         "brix":10,
+         "purity":"yes"
+    }
+    ,
+    {
+        "id":7,
+        "name":"Katimon",
+        "img":"/katimon.jpeg",
+         "price":"100/kg",
+         "available_time":"August 2nd week",
+         "availability":"2-4 Months",
+         "brix":10,
+         "purity":"yes"
+    }
+
+
+
+
+  ]
