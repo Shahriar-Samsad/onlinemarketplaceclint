@@ -25,6 +25,9 @@ const Layout = ({children}) => {
             <Link href="/dashboard/post" className="text-black hover:text-neutral-500 font-semibold">
               Blog
             </Link>
+            <Link href="/dashboard/feedback" className="text-black hover:text-neutral-500 font-semibold">
+           FeedBack
+            </Link>
            
             <Link href="/contact" className="text-black hover:text-neutral-500 font-semibold">
               Contact

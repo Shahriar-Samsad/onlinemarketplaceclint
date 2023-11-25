@@ -49,6 +49,9 @@ const Menubar = () => {
             <Link href="/contact" className="text-black hover:text-neutral-500 font-semibold">
               Contact
             </Link>
+            <Link href="/pages/feedback" className="text-black hover:text-neutral-500 font-semibold">
+             Feedback
+            </Link>
            { !token && <Link href="/login" className="text-black hover:text-neutral-500 font-semibold">
    Login
             </Link>}

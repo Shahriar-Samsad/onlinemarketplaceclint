@@ -40,7 +40,7 @@ const Mango = ({data}) => {
           className="w-full h-48 hover:scale-125 transition-transform transition-500"
         />
         <span className="rounded-md absolute top-1 left-1 bg-red-500 text-white p-1 text-[12px]">
-          SOLD OUT
+          Available from next season
         </span>
       </div>
       <div className="flex flex-col items-center">

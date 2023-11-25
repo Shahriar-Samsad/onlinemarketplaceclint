@@ -1,10 +1,11 @@
- 
- import axios from "../api/axios";
+"use client"
+import Layout from "@/app/customLayout/layout";
+import axios from "../../../components/api/axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import ReactStars from "react-rating-stars-component";
 import { toast } from "react-toastify";
-const FeedBack = () => {
+const Home = () => {
     const [formData, setFormData] = useState({
         title: 'Just Perfect',
         rating:5,
@@ -53,9 +54,81 @@ const FeedBack = () => {
       useEffect(()=>{
         getReview()
       },[])
+      const handleDelete = async(id)=>{
+        try {
+         
+         console.log(id);
+            // Replace 'your-api-endpoint' with the actual API endpoint where you want to send the data.
+            const response = await axios.delete(`/review/${id}` );
+            // Handle the response (e.g., show a success message or redirect to another page).
+            console.log('Data sent successfully:', response.data);
+           
+            if(response.status==200){
+                getReview()
+                  toast.success("delete successfully")
+              
+            }
+          } catch (error) {
+            toast.error(error.message)
+          }
+      }
     return (
-        <div className="container mx-auto  py-3 px-5 rounded-md">
-            <div className="bg-feedbackimg    bg-cover   bg-no-repeat bg-static md:h-[700px]    " style={{
+        <Layout>
+        <div className="container mx-auto">
+            <div className="flex justify-center">
+                
+            <div className="w-full"> 
+            <h1 className="capitalize text-center text-gray-600 font-bold text-2xl mt-20 mb-5">given your feedback to improve my product popularity</h1>
+            <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded shadow-sm"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Title:</label>
+            <input
+              type="number"
+              name="rating"
+              value={formData.rating}
+              onChange={handleChange}
+              step={.01}
+             min={1}
+             max={5}
+              className="w-full px-3 py-2 border rounded shadow-sm"
+            />
+          </div>
+          
+          <div className="mb-4">
+            <label className="block text-sm font-medium">details:</label>
+            <textarea
+              type="text"
+              name="details"
+              value={formData.details}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded shadow-sm"
+            />
+            
+          </div>
+          
+         
+          <button
+            type="submit"
+            className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700"
+          >
+            Submit
+          </button>
+        </form>
+            </div>
+            </div> 
+            
+            
+          <div className="bg-feedbackimg    bg-cover   bg-no-repeat bg-static h-screen    " style={{
             backgroundImage:" url('/feedback.jpg')"
            }} >
 
@@ -143,6 +216,7 @@ const FeedBack = () => {
  
    <p> {item?.details}</p>
    <h2> {item?.name}</h2>
+   <button onClick={()=>handleDelete(item?._id)}>delete</button>
     </div>
  </div>
   
@@ -155,7 +229,8 @@ const FeedBack = () => {
       
 </div>
         </div>
+        </Layout>
     );
 };
 
-export default FeedBack;
+export default Home;

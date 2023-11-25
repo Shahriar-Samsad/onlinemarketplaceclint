@@ -8,6 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'feedbackimg':" url('/public/feedback.jpg')",
+        'hero-pattern': "url('/img/hero-pattern.svg')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',

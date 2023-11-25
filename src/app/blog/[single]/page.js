@@ -27,10 +27,10 @@ console.log(d);
           <div>
             {/* lab test related page  */}
             <h1 className="text-5xl font-bold my-5">Description</h1>
-            <span className="block w-28 h-1 bg-black mb-5"></span>
-            <p className="text-xl justify-end">
-             {data?.description}
-            </p>
+            <span className="block w-40 h-1 bg-black mb-5"></span>
+            <div className="text-xl justify-end"  dangerouslySetInnerHTML={{__html: data?.description}}>
+            
+            </div>
           </div>
         </div>
       </div>

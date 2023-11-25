@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../../components/api/axios';
 import Layout from '../dashboardLay/layout';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const Home = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ const Home = () => {
     price: 'descripe',
     
   });
+  const [value, setValue] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [data,setData] = useState([])
   async function getProducts(){
@@ -24,7 +27,7 @@ const Home = () => {
     try {
       const data = new FormData();
       data.append('title', formData.name);
-      data.append('description', formData.price);
+      data.append('description', value);
       
       data.append('img', imageFile);
        console.log(formData);
@@ -90,13 +93,15 @@ const Home = () => {
           </div>
           <div className="mb-4">
             <label className="block text-sm font-medium">details:</label>
-            <textarea
+            {/* <textarea
               type="text"
               name="price"
               value={formData.price}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded shadow-sm"
-            />
+            /> */}
+            <ReactQuill  
+              value={value} onChange={setValue}></ReactQuill>
           </div>
           
          
@@ -112,7 +117,7 @@ const Home = () => {
      { data.map(item=><div className='flex justify-between gap-5' key={item?._id}>
         <img src={item.img} className='h-32 w-32' alt='loading' />
        
-          <h1>{item.name}</h1>
+          <h1>{item.title}</h1>
           <button className='px-3 py-1 w-20 h-10 bg-red-700 my-3 rounded-md '  onClick={()=>handleDelete(item._id)}>delete</button>
         </div>)}
      </div>

@@ -31,8 +31,8 @@ const Additional = () => {
          { blog.slice(0,4).map((item,index)=> <Link href={`/blog/${item._id}`} className="flex space-x-2 my-2" key={index}>
             <img src={item?.img} className="w-20 h-20" alt="loading" />
             <div>
-              <p> {item?.name}</p>
-              <p>{item?.createdAt} </p>
+              <p> {item?.title}</p>
+              {/* <p>{item?.createdAt} </p> */}
             </div>
           </Link>)}
         </div>

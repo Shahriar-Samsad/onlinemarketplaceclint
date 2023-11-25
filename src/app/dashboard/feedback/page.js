@@ -1,38 +1,18 @@
+"use client"
  
- import axios from "../api/axios";
+import axios from "../../../components/api/axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import ReactStars from "react-rating-stars-component";
 import { toast } from "react-toastify";
-const FeedBack = () => {
+import Layout from "../dashboardLay/layout";
+const Home = () => {
     const [formData, setFormData] = useState({
         title: 'Just Perfect',
         rating:5,
         details: 'this product is awesome',
       });
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-         
-          console.log(formData);
-          // Replace 'your-api-endpoint' with the actual API endpoint where you want to send the data.
-          const response = await axios.post('/review', formData);
-          // Handle the response (e.g., show a success message or redirect to another page).
-          console.log('Data sent successfully:', response.data);
-         
-          if(response.status==200){
-            toast.success("successfully added review")
-          }
-        } catch (error) {
-          toast.error(error.message)
-        }
-      };
-
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-       
+      
       const [review,setReview] = useState([])
       async function getReview(){
         try {
@@ -53,11 +33,37 @@ const FeedBack = () => {
       useEffect(()=>{
         getReview()
       },[])
+      const handleDelete = async(id)=>{
+        try {
+         
+         console.log(id);
+            // Replace 'your-api-endpoint' with the actual API endpoint where you want to send the data.
+            const response = await axios.delete(`/review/${id}` );
+            // Handle the response (e.g., show a success message or redirect to another page).
+            console.log('Data sent successfully:', response.data);
+           
+            if(response.status==200){
+                getReview()
+                  toast.success("delete successfully")
+              
+            }
+          } catch (error) {
+            toast.error(error.message)
+          }
+      }
     return (
-        <div className="container mx-auto  py-3 px-5 rounded-md">
-            <div className="bg-feedbackimg    bg-cover   bg-no-repeat bg-static md:h-[700px]    " style={{
-            backgroundImage:" url('/feedback.jpg')"
-           }} >
+        <Layout>
+        <div className="container mx-auto">
+            <div className="flex justify-center">
+                
+            <div className="w-full"> 
+            <h1 className="capitalize text-center text-gray-600 font-bold text-2xl mt-20 mb-5"> feedback</h1>
+             
+            </div>
+            </div> 
+            
+            
+          <div   >
 
          <div className="flex items-center justify-center  h-full py-5 ">
          <Carousel
@@ -124,7 +130,7 @@ const FeedBack = () => {
         review.map((item,index)=>
          <div key={index} className="py-20 h-full w-full  ">
    
- <div className="relative bg-white px-4 py-10 rounded-md flex justify-center z-50 space-x-4 mx-3">
+ <div className="relative bg-white px-4 py-10 rounded-md flex justify-center z-50 space-x-4 mx-3 border">
     <div className="text-center ">
     <div className="text-center flex justify-center mb-">
         <img src="/am.jpg" alt="loading"  className="w-20 h-20 rounded-full border-4 border-white absolute -top-10"/>
@@ -143,6 +149,7 @@ const FeedBack = () => {
  
    <p> {item?.details}</p>
    <h2> {item?.name}</h2>
+   <button onClick={()=>handleDelete(item?._id)} className="border py-2 px-3 bg-gray-100 rounded-md">delete</button>
     </div>
  </div>
   
@@ -155,7 +162,8 @@ const FeedBack = () => {
       
 </div>
         </div>
+        </Layout>
     );
 };
 
-export default FeedBack;
+export default Home;

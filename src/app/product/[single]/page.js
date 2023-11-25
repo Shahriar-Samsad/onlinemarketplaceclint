@@ -71,9 +71,10 @@ const d1 = useRouter()
       <h3 className='text-2xl my-5 flex items-center text-gray-500'> <span className='w-2 h-2 bg-gray-500 rounded-full block mx-2'> </span> Availability : {data?.availability}</h3>
       <h3 className='text-2xl my-5 flex items-center text-gray-500'> <span className='w-2 h-2 bg-gray-500 rounded-full block mx-2'> </span> Brix : {data?.brix}</h3>
       {/* <h4>{data?.availability}</h4> */}
-     <p className='text-2xl text-red-600'>Note : থানা পর্যায়ে কুরিয়ার এর অফিস ডেলিভারি হবে</p>
-    
-     <div className='mt-10 border-2 text-white font-700 px-3 py-2 bg-lime-600 rounded-md text-center'> 
+     <p className='text-2xl text-red-600'>Note : থানা পর্যায়ে কুরিয়ার এর অফিস ডেলিভারি হবে।</p>
+    <p className='text-2xl mt-5 text-red-600'>কোনো অগ্রিম ছাড়াই নগদ অর্থ প্রদানও পাওয়া যায়।
+    এই ক্ষেত্রে, গ্রাহককে অর্ডারে দেওয়া ফোন নম্বরটি আনতে হবে।</p>
+     <div className='mt-6 border-2 text-white font-700 px-3 py-2 bg-lime-600 rounded-md text-center'> 
      <Modals handleChange={handleChange} handleSave={handleSave} setData={setData} formData={formData}/>
      </div>
       </div>
@@ -82,7 +83,7 @@ const d1 = useRouter()
           <div>
             <h1 className="text-5xl underline font-semibold text-center">Lab Report</h1>
           </div>
-          <div className='col-2 mt-24 mx-48'>
+          <div className='mt-24 mx-96'>
             <img src="/lab test.jpg" alt="loading..." />
           </div>
         </div>

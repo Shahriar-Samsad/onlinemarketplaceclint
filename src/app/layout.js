@@ -4,6 +4,9 @@ import { Inter } from 'next/font/google'
 import "react-multi-carousel/lib/styles.css";
  
 import Providers from '@/redux/Providers';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -15,7 +18,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
         <Providers store={store}>{children}    </Providers>
         </body>
     </html>
